@@ -1,6 +1,7 @@
 const express= require('express');
 const mongoose=require('mongoose');
 const cors=require('cors');
+const errorHandler=require('./middleware/errorHandler')
 require('dotenv').config();
 
 const connectDB=require('./config/db');
@@ -17,10 +18,12 @@ app.use(express.json());
 app.use('/api/auth',authRoutes);
 app.use('/api/jobs',jobRoutes);
 
+
 app.get('/',(req,res)=>{
     res.send('Job Tracker API Running!');
 });
 
+app.use(errorHandler);
 const PORT=process.env.PORT || 3000;
 
 app.listen(PORT,()=>{

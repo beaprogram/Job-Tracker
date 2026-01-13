@@ -6,10 +6,13 @@ const{
     getJobs,
     getJob,
     updateJob,
-    deleteJob
+    deleteJob,
+    getStats
 }=require('../controllers/jobController');
 
 router.use(auth);
+
+router.get('/stats',getStats)
 
 router.route('/')
 .post(createJob)
