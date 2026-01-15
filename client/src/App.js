@@ -1,20 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Register from "./pages/Register";
 
 function App(){
   return(
-    <BrowserRouter>
-      <Navbar>
-        <main>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar/>
+        <main className="container mx-auto p-4">
           <Routes>
             <Route path="/" element={<h1 className="text-3xl">Dashboard</h1>}/>
-            <Route path="/login" element={<h1 className="text-3xl">Login Page</h1>}/>
-            <Route path="/register" element={<h1 className="text-3xl">Register Page</h1>}/>
+            <Route path="/login" element={<Login />}/>
+            <Route path="/register" element={<Register />}/>
             <Route path="/jobs" element={<h1 className="text-3xl">Jobs Page</h1>}/>
           </Routes>
         </main>
-      </Navbar>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
