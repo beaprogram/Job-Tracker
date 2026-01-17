@@ -13,7 +13,7 @@ function App(){
       <BrowserRouter>
         <Navbar/>
         <main className="container mx-auto p-4">
-          <Routes>
+          <Routes> ß
             <Route path="/" element={<h1 className="text-3xl">Dashboard</h1>}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />}/>
