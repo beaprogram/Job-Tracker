@@ -16,10 +16,13 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-bold">
           Job Tracker
         </Link>
-        <div className="space-x-4">
+        <div className="space-x-4 flex items-center">
           {user ? (
             <>
-              <span>Welcome, {user.name}!</span>
+              <span className="hidden md:inline">Welcome, {user.name}!</span>
+              <Link to="/" className="hover:text-blue-200">
+                Dashboard
+              </Link>
               <Link to="/jobs" className="hover:text-blue-200">
                 Jobs
               </Link>
