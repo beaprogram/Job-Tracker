@@ -45,12 +45,12 @@ const Dashboard = () => {
   ];
 
   if (loading) {
-    return <div className="text-center mt-10">Loading...</div>;
+    return <div className="text-center mt-10 dark:text-white">Loading...</div>;
   }
 
   return (
     <div className="max-w-6xl mx-auto mt-6">
-      <h1 className="text-3xl font-bold mb-6">
+      <h1 className="text-3xl font-bold mb-6 dark:text-white">
         Welcome back, {user?.name || 'User'}! 👋
       </h1>
 
@@ -68,20 +68,20 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Jobs */}
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Recent Applications</h2>
-          <Link to="/jobs" className="text-blue-600 hover:underline">
+          <h2 className="text-xl font-bold dark:text-white">Recent Applications</h2>
+          <Link to="/jobs" className="text-blue-600 dark:text-blue-400 hover:underline">
             View All
           </Link>
         </div>
 
         {recentJobs.length === 0 ? (
-          <div className="text-center text-gray-500 py-8">
+          <div className="text-center text-gray-500 dark:text-gray-400 py-8">
             <p>No job applications yet.</p>
             <Link
               to="/jobs/add"
-              className="text-blue-600 hover:underline mt-2 inline-block"
+              className="text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-block"
             >
               Add your first job!
             </Link>
@@ -89,32 +89,32 @@ const Dashboard = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                  <th className="px-4 py-3 text-left text-gray-600">Company</th>
-                  <th className="px-4 py-3 text-left text-gray-600">Position</th>
-                  <th className="px-4 py-3 text-left text-gray-600">Status</th>
-                  <th className="px-4 py-3 text-left text-gray-600">Date</th>
+                  <th className="px-4 py-3 text-left text-gray-600 dark:text-gray-300">Company</th>
+                  <th className="px-4 py-3 text-left text-gray-600 dark:text-gray-300">Position</th>
+                  <th className="px-4 py-3 text-left text-gray-600 dark:text-gray-300">Status</th>
+                  <th className="px-4 py-3 text-left text-gray-600 dark:text-gray-300">Date</th>
                 </tr>
               </thead>
               <tbody>
                 {recentJobs.map((job) => (
-                  <tr key={job._id} className="border-t hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium">{job.company}</td>
-                    <td className="px-4 py-3">{job.position}</td>
+                  <tr key={job._id} className="border-t dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <td className="px-4 py-3 font-medium dark:text-white">{job.company}</td>
+                    <td className="px-4 py-3 dark:text-gray-300">{job.position}</td>
                     <td className="px-4 py-3">
                       <span
                         className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          job.status === 'Applied' ? 'bg-blue-100 text-blue-800' :
-                          job.status === 'Interview' ? 'bg-yellow-100 text-yellow-800' :
-                          job.status === 'Offer' ? 'bg-green-100 text-green-800' :
-                          'bg-red-100 text-red-800'
+                          job.status === 'Applied' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                          job.status === 'Interview' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
+                          job.status === 'Offer' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                          'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
                         }`}
                       >
                         {job.status}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-gray-500">
+                    <td className="px-4 py-3 text-gray-500 dark:text-gray-400">
                       {new Date(job.dateApplied).toLocaleDateString()}
                     </td>
                   </tr>
@@ -135,7 +135,7 @@ const Dashboard = () => {
         </Link>
         <Link
           to="/jobs"
-          className="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 font-medium"
+          className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white px-6 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 font-medium"
         >
           View All Jobs
         </Link>
